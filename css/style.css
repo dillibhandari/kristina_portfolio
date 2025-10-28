@@ -21,7 +21,7 @@ header {
 }
 
 .header-content h1 {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     animation: bounce 1s ease-in-out;
@@ -33,17 +33,23 @@ header {
 }
 
 .subtitle {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 3vw, 1.3rem);
     opacity: 0.95;
+    padding: 0 1rem;
 }
+
 .school-name {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     margin-top: 0.5rem;
     font-weight: 500;
     color: #fffbe6;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    padding: 0 1rem;
 }
 
+.emoji {
+    display: inline-block;
+}
 
 /* Navigation */
 nav {
@@ -59,18 +65,20 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: clamp(0.5rem, 3vw, 2rem);
     flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     transition: all 0.3s;
     padding: 0.5rem 1rem;
     border-radius: 20px;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -79,23 +87,23 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Content Sections */
+/* Container & Sections */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
 }
 
 section {
-    margin-bottom: 4rem;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
     background: white;
-    padding: 2rem;
+    padding: clamp(1.5rem, 4vw, 2rem);
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(33, 150, 243, 0.2);
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 1.5rem;
     color: #2196F3;
     text-align: center;
@@ -105,25 +113,36 @@ h2 {
 /* About Section */
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     align-items: center;
 }
 
 .profile-image {
-    width: 200px;
-    height: 200px;
+    width: clamp(150px, 40vw, 200px);
+    height: clamp(150px, 40vw, 200px);
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid #64B5F6;
     box-shadow: 0 5px 20px rgba(33, 150, 243, 0.4);
     margin: 0 auto;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.about-text p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    margin-bottom: 1rem;
+    text-align: justify;
 }
 
 /* Fun Facts */
@@ -137,15 +156,12 @@ h2 {
 .fun-facts h3 {
     color: #2196F3;
     margin-bottom: 1rem;
-}
-
-.fun-facts ul {
-    list-style: none;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .fun-facts li {
     padding: 0.5rem 0;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
 .fun-facts li:before {
@@ -156,7 +172,7 @@ h2 {
 /* Subject Cards */
 .subjects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 1.5rem;
 }
 
@@ -176,19 +192,24 @@ h2 {
 }
 
 .subject-icon {
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     margin-bottom: 1rem;
 }
 
 .subject-card h3 {
     color: #2196F3;
     margin-bottom: 0.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+}
+
+.subject-card p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 /* Hobbies */
 .hobbies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 2rem;
 }
 
@@ -206,18 +227,32 @@ h2 {
 }
 
 .hobby-image {
-    height: 180px;
+    height: clamp(120px, 30vw, 180px);
     background: linear-gradient(135deg, #ff6ec7 0%, #ffd1ff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5rem;
+    font-size: clamp(3rem, 10vw, 5rem);
+}
+
+.hobby-content {
+    padding: 1.5rem;
+}
+
+.hobby-content h3 {
+    color: #ff6ec7;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+}
+
+.hobby-content p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 /* Achievements */
 .achievements {
     background: linear-gradient(135deg, #fff5f7 0%, #ffe6f0 100%);
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
     border-radius: 15px;
 }
 
@@ -227,7 +262,7 @@ h2 {
     margin: 1rem 0;
     border-radius: 10px;
     border-left: 5px solid #ff6ec7;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
 .achievement-item:before {
@@ -246,12 +281,13 @@ h2 {
 .contact-info h3 {
     color: #2196F3;
     margin-bottom: 1rem;
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
 }
 
 .contact-info p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     margin: 0.5rem 0;
+    word-break: break-word;
 }
 
 .contact-buttons {
@@ -271,7 +307,7 @@ h2 {
     font-weight: bold;
     transition: all 0.3s;
     border: none;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .contact-btn:hover {
@@ -284,30 +320,38 @@ footer {
     background: linear-gradient(to right, #2196F3, #64B5F6);
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     margin-top: 4rem;
 }
 
 footer p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 0.3rem 0;
 }
 
 .hearts {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     margin: 1rem 0;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .about-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 0.5rem;
     }
 
-    h1 {
-        font-size: 2rem !important;
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
     }
 
-    h2 {
-        font-size: 1.8rem;
+    .contact-btn {
+        padding: 0.8rem 1.5rem;
     }
 }
